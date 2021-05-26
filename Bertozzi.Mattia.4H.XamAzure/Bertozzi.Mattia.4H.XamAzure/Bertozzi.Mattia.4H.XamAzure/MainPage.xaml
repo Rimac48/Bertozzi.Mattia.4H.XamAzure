@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bertozzi.Mattia._4H.XamAzure.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <StackLayout>
+                <Label Text="Welcome" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                <Label Text="to Xamarin.Forms" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </StackLayout>
+        </Frame>
+
+        <Button Text="Go!" Clicked="Button_Clicked"></Button>
+
+        <ListView x:Name="lvStudenti" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<TextCell Text="{Binding Nome}" Detail="{Binding Cognome}" />-->
+                    <!--<ImageCell Text="{Binding Nome}" Detail="{Binding Cognome}" ImageSource="{Binding Immagine}"></ImageCell>-->
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="10">
+                            <Image Source="{Binding URLImmagine}"
+                                WidthRequest="100"   HeightRequest="100"
+                                HorizontalOptions="Start" VerticalOptions="Center">
+
+                                <Image.Clip>
+                                    <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                                </Image.Clip>
+                            </Image>
+                            <StackLayout VerticalOptions="Center" Orientation="Vertical">
+                                <Label FontSize="Medium" Text="{Binding NomeCognome}"/>
+                                <Label FontSize="Subtitle" FontAttributes="Italic" Text="{Binding Dettagli}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
